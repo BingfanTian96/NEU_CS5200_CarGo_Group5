@@ -29,22 +29,21 @@
 		</a>
 
 		<ul class="nav nav-pills">
-			<li><a href="/Cargo/profile/account?userId=3"
-				class="link-primary" style="line-height: 40px; padding-right: 10px;">Kaiwen
-					Zhou</a></li>
-			<li class="nav-item">
+			<li><a href=""
+				class="link-primary" style="line-height: 40px; padding-right: 10px;" id="userName"></a></li>
+			<li class="nav-item" style="padding-right: 10px;">
 				<form action="/Cargo/signin" method="GET">
 					<button class="btn btn-outline-primary" type="submit">Sign
 						In</button>
 				</form>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item" style="padding-right: 10px;">
 				<form action="/Cargo/signup/signup.jsp" method="GET">
 					<button class="btn btn-outline-primary" type="submit">Sign
 						Up</button>
 				</form>
 			</li>
-			<li class="nav-item">
+			<li class="nav-item" id="new-button" style="padding-right: 10px;">
 				<form action="/Cargo/new" method="GET">
 					<button class="btn btn-outline-primary" type="submit">New</button>
 				</form>
@@ -94,10 +93,10 @@
 											value="${car.getModel()}" />
 									</a>
 								</h4>
-								<form style="display: inline" action="/Cargo/save" method="post">
+								<form style="display: inline" action="/Cargo/save" method="post" id="form1">
 									<input type="hidden" aria-label="vin" name="vin"
 										value="${car.getVin()}" /> <input type="hidden"
-										aria-label="buyerId" name="buyerId" value="3" />
+										aria-label="buyerId" name="buyerId" id="saveInput" />
 									<button type="submit" class="btn"
 										style="display: inline; position: absolute; right: 20px;">
 										<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -161,7 +160,22 @@
 	</div>
 	</footer>
 
-
+	<script>
+		var userId = localStorage.getItem('userId');
+		var userName = localStorage.getItem('userName');
+		if (userId == null || userId.trim().length == 0){
+			element = document.getElementById("form1");
+			if (element != null) {
+				element.remove();
+			}
+			element2 = document.getElementById("new-button");
+			element2.remove();
+		}else{
+			document.getElementById("userName").innerHTML = userName;
+			document.getElementById("userName").href = "/Cargo/profile/account?userId=" + userId;
+			document.getElementById("saveInput").value = userId;
+		}
+	</script>
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 

@@ -52,9 +52,6 @@ public class SignIn extends HttpServlet {
         String email = req.getParameter("email");
         req.setAttribute("email", email);
     	String password = req.getParameter("password");
-    	System.out.println("post");
-    	System.out.println(email);
-    	System.out.println(password);
         if (email == null || email.trim().isEmpty() ||
         		password == null || password.trim().isEmpty()) {
             messages.put("success", "Please enter all valid parameters.");

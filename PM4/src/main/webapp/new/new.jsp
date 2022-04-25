@@ -102,7 +102,7 @@
 				</div>
 				<div class="mb-3" hidden>
 					<label for="InputUserId" class="form-label">User Id</label> 
-					<input type="text" class="form-control" name="userId" value="5">
+					<input type="text" class="form-control" name="userId" id="userId" value="">
 				</div>
 				
 				<button type="submit" class="btn btn-primary">Submit</button>
@@ -123,7 +123,11 @@
 		</p>
 	</div>
 	</footer>
-
+	
+	<script>
+		var userId = localStorage.getItem('userId');
+		document.getElementById("userId").value = userId;
+	</script>
 
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

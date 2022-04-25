@@ -36,7 +36,7 @@
 							height="57"> <span class="fs-4">CarGo</span>
 						</a>
 						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="/Cargo/profile/account?userId=3"> <svg
+							href="" id="profile-link"><svg
 									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 									viewBox="0 0 24 24" fill="none" stroke="currentColor"
 									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -45,7 +45,7 @@
 									points="9 22 9 12 15 12 15 22"></polyline></svg> Profile
 						</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/Cargo/profile/posts?userId=3"> <svg
+							href="" id="posts-link"><svg
 									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 									viewBox="0 0 24 24" fill="none" stroke="currentColor"
 									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -54,7 +54,7 @@
 								<polyline points="13 2 13 9 20 9"></polyline></svg> Posts
 						</a></li>
 						<li class="nav-item"><a class="nav-link active"
-							href="/Cargo/profile/saved?userId=3"><svg
+							href="" id="saved-link"><svg
 									xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 									fill="currentColor" class="feather feather-file"
 									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -137,6 +137,12 @@
 			</div>
 		</main>
 
+		<script>
+		var userId = localStorage.getItem('userId');
+		document.getElementById("profile-link").href = "/Cargo/profile/account?userId=" + userId;
+		document.getElementById("posts-link").href = "/Cargo/profile/posts?userId=" + userId;
+		document.getElementById("saved-link").href = "/Cargo/profile/saved?userId=" + userId;
+		</script>
 
 		<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>

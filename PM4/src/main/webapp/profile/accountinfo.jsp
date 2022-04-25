@@ -36,7 +36,7 @@
 							height="57"> <span class="fs-4">CarGo</span>
 						</a>
 						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/Cargo/profile/account?userId=3"> <svg
+							aria-current="page" href="" id="profile-link"> <svg
 									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 									viewBox="0 0 24 24" fill="none" stroke="currentColor"
 									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -45,7 +45,7 @@
 									points="9 22 9 12 15 12 15 22"></polyline></svg> Profile
 						</a></li>
 						<li class="nav-item"><a class="nav-link"
-							href="/Cargo/profile/posts?userId=3"> <svg
+							href="" id="posts-link"> <svg
 									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 									viewBox="0 0 24 24" fill="none" stroke="currentColor"
 									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -53,7 +53,8 @@
 									d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
 								<polyline points="13 2 13 9 20 9"></polyline></svg> Posts
 						</a></li>
-						<li class="nav-item"><a class="nav-link" href="/Cargo/profile/saved?userId=3"><svg
+						<li class="nav-item"><a class="nav-link"
+							href="" id="saved-link"><svg
 									xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 									fill="currentColor" class="feather feather-file"
 									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -71,7 +72,8 @@
 						<div class="mb-3">
 							<label for="InputVin" class="form-label">First Name</label> <input
 								type="text" class="form-control" name="firstName"
-								value="${user.getFirstName()}" style="width: calc(100% - 500px);">
+								value="${user.getFirstName()}"
+								style="width: calc(100% - 500px);">
 						</div>
 						<div class="mb-3">
 							<label for="InputYear" class="form-label">Last Name</label> <input
@@ -99,6 +101,12 @@
 
 		</main>
 
+		<script>
+		var userId = localStorage.getItem('userId');
+		document.getElementById("profile-link").href = "/Cargo/profile/account?userId=" + userId;
+		document.getElementById("posts-link").href = "/Cargo/profile/posts?userId=" + userId;
+		document.getElementById("saved-link").href = "/Cargo/profile/saved?userId=" + userId;
+		</script>
 
 		<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>

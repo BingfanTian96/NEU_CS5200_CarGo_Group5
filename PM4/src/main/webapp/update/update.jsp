@@ -102,7 +102,7 @@
 				</div>
 				<div class="mb-3" hidden>
 					<label for="InputUserId" class="form-label">User Id</label> 
-					<input type="text" class="form-control" name="userId" value="5">
+					<input type="text" class="form-control" name="userId" value="${car.getSeller().getUserId()}">
 				</div>
 				
 				<button type="submit" class="btn btn-primary">Submit</button>
