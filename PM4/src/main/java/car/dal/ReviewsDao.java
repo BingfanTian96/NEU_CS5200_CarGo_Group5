@@ -37,7 +37,7 @@ public class ReviewsDao{
 	public Reviews create(Reviews review) throws SQLException {
 		String insertReview =
 			"INSERT INTO Reviews(Date, ReviewContent, Rating, BuyerId, SellerId) " +
-			"VALUES(?,?,?,?,?,?);";
+			"VALUES(?,?,?,?,?);";
 		Connection connection = null;
 		PreparedStatement insertStmt = null;
 		ResultSet resultKey = null;

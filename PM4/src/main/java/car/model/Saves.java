@@ -45,6 +45,4 @@ public class Saves{
 	public void setBuyer(Buyer buyer) {
 		this.buyer = buyer;
 	}
-	
-	
 }
