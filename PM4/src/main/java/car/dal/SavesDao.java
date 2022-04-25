@@ -133,7 +133,7 @@ public class SavesDao{
 		List<Cars> cars = new ArrayList<>();
 		String selectCarsFromSaves =
 			"SELECT Saves.Vin,Year,Make,Model,Trim,Body,Transmission,State,Odometer,"
-			+ "CarCondition,Color,Interior,Mmr,SellingPrice,Cars.UserId" +
+			+ "CarCondition,Color,Interior,Mmr,SellingPrice,Cars.UserId " +
 			"FROM Saves INNER JOIN Cars ON Saves.Vin = Cars.Vin " +
 			"WHERE Saves.UserId=?;";
 		Connection connection = null;
