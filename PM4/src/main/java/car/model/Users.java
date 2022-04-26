@@ -6,18 +6,18 @@ package car.model;
  * @author Jianqing Ma, Sen Yan, Bo Chen, Bingfan Tian, Qihui Liu, Kailun He
  *
  */
-public class User {
+public class Users {
     protected int userId;
     protected String firstName;
     protected String lastName;
     protected String email;
     protected String password;
 
-    public User(int userId){
+    public Users(int userId){
         this.userId = userId;
     }
 
-    public User(String firstName, String lastName, String email, String password){
+    public Users(String firstName, String lastName, String email, String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -26,7 +26,7 @@ public class User {
     }
  
 
-    public User(int userId, String firstName, String lastName, String email, String password) {
+    public Users(int userId, String firstName, String lastName, String email, String password) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;

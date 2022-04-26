@@ -11,11 +11,11 @@ public class Reviews{
 	protected Date date;
 	protected String reviewContent;
 	protected double rating;
-	protected Buyer buyer;
-	protected Sellers seller;
+	protected Users buyer;
+	protected Users seller;
 	
 	//this constructor is used for reading records
-	public Reviews(int reviewId, Date date, String reviewContent, double rating, Buyer buyer, Sellers seller) {
+	public Reviews(int reviewId, Date date, String reviewContent, double rating, Users buyer, Users seller) {
 		super();
 		this.reviewId = reviewId;
 		this.date = date;
@@ -35,7 +35,7 @@ public class Reviews{
 
 
 	//this constructor is used for creating records
-	public Reviews(Date date, String reviewContent, double rating, Buyer buyer, Sellers seller) {
+	public Reviews(Date date, String reviewContent, double rating, Users buyer, Users seller) {
 		super();
 		this.date = date;
 		this.reviewContent = reviewContent;
@@ -85,22 +85,22 @@ public class Reviews{
 	}
 
 
-	public Buyer getBuyer() {
+	public Users getBuyer() {
 		return buyer;
 	}
 
 
-	public void setBuyer(Buyer buyer) {
+	public void setBuyer(Users buyer) {
 		this.buyer = buyer;
 	}
 
 
-	public Sellers getSeller() {
+	public Users getSeller() {
 		return seller;
 	}
 
 
-	public void setSeller(Sellers seller) {
+	public void setSeller(Users seller) {
 		this.seller = seller;
 	}
 

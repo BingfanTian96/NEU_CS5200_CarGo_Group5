@@ -9,7 +9,7 @@ package car.model;
  /**
   * @param userId
   */
-public class Admin extends User{
+public class Admin extends Users{
     protected int userId;
     
 

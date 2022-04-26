@@ -41,7 +41,7 @@ public class AccountInfo extends HttpServlet {
         	messages.put("success", "Invalid UserID number");
         } else {
 	        try {
-	        	User cur_User = userDao.getUserByUserId(Integer.valueOf(resultUserId));
+	        	Users cur_User = userDao.getUserByUserId(Integer.valueOf(resultUserId));
 				if(cur_User == null) {
 	        		messages.put("success", "UserID does not exist.");
 	        	}
@@ -68,7 +68,7 @@ public class AccountInfo extends HttpServlet {
         	messages.put("success", "Invalid UserID number");
         } else {
 			try {
-				User cur_User = userDao.getUserByUserId(Integer.valueOf(resultUserId));
+				Users cur_User = userDao.getUserByUserId(Integer.valueOf(resultUserId));
 	        	if(cur_User == null) {
 	        		messages.put("success", "UserID does not exist.");
 	        	}

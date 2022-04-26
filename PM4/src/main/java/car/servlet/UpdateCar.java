@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import car.dal.CarDao;
 import car.dal.SellerDao;
+import car.dal.UserDao;
 import car.model.Cars;
 import car.model.Sellers;
+import car.model.Users;
 
 
 /**   
@@ -42,9 +44,7 @@ public class UpdateCar extends HttpServlet {
         } else {
         	try {
 				Cars curCar = carDao.getCarByVin(resultVin);
-				if(curCar == null) {
-	        		messages.put("success", "Vin does not exist. No update to perform.");
-	        	}
+				System.out.println(curCar.getSeller().getUserId());
 				req.setAttribute("car", curCar);
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -80,8 +80,8 @@ public class UpdateCar extends HttpServlet {
 	    		int resultMmr = Integer.valueOf(req.getParameter("mmr"));
 	    		int resultSellingPrice = Integer.valueOf(req.getParameter("sellingPrice"));
 	    		int resultUserId = Integer.valueOf(req.getParameter("userId"));
-	    		Sellers seller = null;
-				seller = SellerDao.getInstance().getSellerByUserId(resultUserId);
+	    		Users seller = null;
+				seller = UserDao.getInstance().getUserByUserId(resultUserId);
 				
 				carDao.updateCar(cur_car, resultTrim, resultState, resultOdometer, 
 	        			resultCarCondition, resultColor, resultInterior, resultMmr, 

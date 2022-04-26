@@ -27,14 +27,6 @@
 			<img class="mb-4" src="assets/logo.svg" alt="" width="72" height="57">
 			<span class="fs-4">CarGo</span>
 		</a>
-
-		<ul class="nav nav-pills">
-			<li class="nav-item">
-				<form action="/Cargo/new" method="GET">
-					<button class="btn btn-outline-primary" type="submit">New</button>
-				</form>
-			</li>
-		</ul>
 		</header>
 	</div>
 	</header>
@@ -102,7 +94,7 @@
 				</div>
 				<div class="mb-3" hidden>
 					<label for="InputUserId" class="form-label">User Id</label> 
-					<input type="text" class="form-control" name="userId" value="5">
+					<input type="text" class="form-control" name="userId" value="${car.getSeller().getUserId()}">
 				</div>
 				
 				<button type="submit" class="btn btn-primary">Submit</button>

@@ -28,13 +28,6 @@
 			<span class="fs-4">CarGo</span>
 		</a>
 
-		<ul class="nav nav-pills">
-			<li class="nav-item">
-				<form action="/Cargo/new" method="GET">
-					<button class="btn btn-outline-primary" type="submit">New</button>
-				</form>
-			</li>
-		</ul>
 		</header>
 	</div>
 	</header>
@@ -112,14 +105,19 @@
 				</tbody>
 			</table>
 			<div style="padding-top: 50px">
-				<h3>Leave a message to ${car.getSeller().getFirstName()}</h3>
+				<c:if test="${messages['success'] != null}">
+					<div class="alert alert-success" role="alert">
+						<c:out value="${messages['success']}" />
+					</div>
+				</c:if>
+				<form action="" method="POST" id="form1">
+					<h3>Leave a message to ${car.getSeller().getFirstName()}</h3>
 
-				<form action="" method="POST">
 					<div class="mb-3">
 						<textarea class="form-control" name="content" rows="5"></textarea>
 					</div>
 					<input hidden name="toId" value="${car.getSeller().getUserId()}" />
-					<input hidden name="fromId" value="3" />
+					<input hidden name="fromId" id="fromId" />
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
 			</div>
@@ -138,6 +136,14 @@
 	</div>
 	</footer>
 
+	<script>
+		var userId = localStorage.getItem('userId');
+		document.getElementById("fromId").value = userId;
+		if (userId == null || userId.trim().length == 0) {
+			element = document.getElementById("form1");
+			element.remove();
+		}
+	</script>
 
 	<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

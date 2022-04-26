@@ -191,7 +191,7 @@ INSERT INTO Messages(Content, FromId, ToId)
 INSERT INTO Messages(Content, FromId, ToId)
 	VALUES('This is a message', 3, 6);
 INSERT INTO Messages(Content, FromId, ToId)
-	VALUES('This is a message', 4, 7);
+	VALUES('This is a message', 3, 7);
 INSERT INTO Messages(Content, FromId, ToId)
 	VALUES('This is a message', 4, 5);
 INSERT INTO Messages(Content, FromId, ToId)

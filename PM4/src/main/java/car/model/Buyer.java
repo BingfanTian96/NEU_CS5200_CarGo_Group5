@@ -9,7 +9,7 @@ import java.util.Date;
  *
  */
 
-public class Buyer extends User{
+public class Buyer extends Users{
     protected Date dob;
     protected int zip;
 

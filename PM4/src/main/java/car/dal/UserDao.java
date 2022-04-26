@@ -32,7 +32,7 @@ public class UserDao{
 	 * Save the Users instance by storing it in your MySQL instance.
 	 * This runs a INSERT statement.
 	 */
-	public User create(User user) throws SQLException {
+	public Users create(Users user) throws SQLException {
 		String insertUser = "INSERT INTO Users(FirstName,LastName,Email,Password) " +
         "VALUES(?,?,?,?);";
 		Connection connection = null;
@@ -82,7 +82,7 @@ public class UserDao{
 		}
 	}
 	
-	public User getUserByUserId(int userId) throws SQLException {
+	public Users getUserByUserId(int userId) throws SQLException {
 		String selectUser = "SELECT UserId,FirstName,LastName,Email,Password FROM Users WHERE UserId=?;";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
@@ -106,7 +106,7 @@ public class UserDao{
 				String email = results.getString("Email");
                 String password = results.getString("Password");
 			
-				User user = new User(resultUserId, firstName, lastName, email, password);
+				Users user = new Users(resultUserId, firstName, lastName, email, password);
 				return user;
 			}
 		} catch (SQLException e) {
@@ -126,7 +126,7 @@ public class UserDao{
 		return null;
 	}
 
-	public User getUserByEmail(String email) throws SQLException {
+	public Users getUserByEmail(String email) throws SQLException {
 		String selectUser = "SELECT UserId,FirstName,LastName,Email,Password FROM Users WHERE Email=?;";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
@@ -150,7 +150,7 @@ public class UserDao{
 				String resultEmail = results.getString("Email");
                 String password = results.getString("Password");
 			
-				User user = new User(userId, firstName, lastName, resultEmail, password);
+				Users user = new Users(userId, firstName, lastName, resultEmail, password);
 				return user;
 			}
 		} catch (SQLException e) {
@@ -171,8 +171,8 @@ public class UserDao{
 	}
 
 
-	public List<User> getUsersFromFirstName(String firstName) throws SQLException {
-		List<User> users = new ArrayList<User>();
+	public List<Users> getUsersFromFirstName(String firstName) throws SQLException {
+		List<Users> users = new ArrayList<Users>();
 		String selectUsers = "SELECT UserId,FirstName,LastName,Email,Password FROM Users WHERE FirstName=?;";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
@@ -196,7 +196,7 @@ public class UserDao{
 				String email = results.getString("Email");
                 String password = results.getString("Password");
 			
-				User user = new User(userId, resultFirstName, lastName, email, password);
+				Users user = new Users(userId, resultFirstName, lastName, email, password);
 				users.add(user);
 			}
 		} catch (SQLException e) {
@@ -218,8 +218,8 @@ public class UserDao{
 
 
 
-	public List<User> getUsersFromLastName(String lastName) throws SQLException {
-		List<User> users = new ArrayList<User>();
+	public List<Users> getUsersFromLastName(String lastName) throws SQLException {
+		List<Users> users = new ArrayList<Users>();
 		String selectUsers = "SELECT UserId,FirstName,LastName,Email,Password FROM Users WHERE LastName=?;";
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
@@ -243,7 +243,7 @@ public class UserDao{
 				String email = results.getString("Email");
                 String password = results.getString("Password");
 			
-				User user = new User(userId, firstName, resultLastName, email, password);
+				Users user = new Users(userId, firstName, resultLastName, email, password);
 				users.add(user);
 			}
 		} catch (SQLException e) {
@@ -263,7 +263,7 @@ public class UserDao{
 		return users;
 	}
 	
-	public User delete(User user) throws SQLException {
+	public Users delete(Users user) throws SQLException {
 		String deleteUser = "DELETE FROM Users WHERE UserId=?;";
 		Connection connection = null;
 		PreparedStatement deleteStmt = null;
@@ -293,7 +293,7 @@ public class UserDao{
 	 * Update the Password of the User instance.
 	 * This runs a UPDATE statement.
 	 */
-	public User updateUser(User user, String newFirstName, String newLastName, String newEmail, String newPassword) throws SQLException {
+	public Users updateUser(Users user, String newFirstName, String newLastName, String newEmail, String newPassword) throws SQLException {
 		String updateUser = "UPDATE Users SET FirstName=?,LastName=?,Email=?,Password=? WHERE UserId=?;";
 		Connection connection = null;
 		PreparedStatement updateStmt = null;

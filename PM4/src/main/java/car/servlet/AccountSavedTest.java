@@ -19,7 +19,7 @@ import car.dal.SellerDao;
 import car.dal.UserDao;
 import car.model.Cars;
 import car.model.Sellers;
-import car.model.User;
+import car.model.Users;
 
 
 /**   
@@ -52,7 +52,7 @@ public class AccountSavedTest extends HttpServlet {
         } else {
 	        try {
 	        	cars = savesDao.getCarsFromSavesByUserId(Integer.valueOf(resultUserId));
-	        	User cur_User = userDao.getUserByUserId(Integer.valueOf(resultUserId));
+	        	Users cur_User = userDao.getUserByUserId(Integer.valueOf(resultUserId));
 				if(cur_User == null) {
 	        		messages.put("success", "UserID does not exist.");
 	        	} else {

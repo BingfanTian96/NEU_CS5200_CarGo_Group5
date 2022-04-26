@@ -65,9 +65,9 @@ public class NewCar extends HttpServlet {
     		int resultMmr = Integer.valueOf(req.getParameter("mmr"));
     		int resultSellingPrice = Integer.valueOf(req.getParameter("sellingPrice"));
     		int resultUserId = Integer.valueOf(req.getParameter("userId"));
-    		Sellers seller = null;
+    		Users seller = null;
 			try {
-				seller = SellerDao.getInstance().getSellerByUserId(resultUserId);
+				seller = UserDao.getInstance().getUserByUserId(resultUserId);
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

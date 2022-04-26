@@ -21,7 +21,7 @@ public class Cars {
 	protected String interior;
 	protected int mmr;
 	protected int sellingPrice;
-	protected Sellers seller;
+	protected Users seller;
 	
 	/**
 	 * Constructor for reading records from MySQL, where we have all fields.
@@ -42,7 +42,7 @@ public class Cars {
 	 * @param seller The seller of the car.
 	 */
 	public Cars(String vin, int year, String make, String model, String trim, String body, String transmission,
-			String state, int odometer, double carCondition, String color, String interior, int mmr, int sellingPrice,Sellers seller) {
+			String state, int odometer, double carCondition, String color, String interior, int mmr, int sellingPrice,Users seller) {
 		this.vin = vin;
 		this.year = year;
 		this.make = make;
@@ -310,7 +310,7 @@ public class Cars {
 	 * 
 	 * @return The seller of the car.
 	 */
-	public Sellers getSeller() {
+	public Users getSeller() {
 		return seller;
 	}
 	
@@ -319,7 +319,7 @@ public class Cars {
 	 * 
 	 * @param seller The seller of the car.
 	 */
-	public void setSeller(Sellers seller) {
+	public void setSeller(Users seller) {
 		this.seller = seller;
 	}
 
