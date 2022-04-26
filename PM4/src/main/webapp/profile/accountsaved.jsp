@@ -67,7 +67,7 @@
 
 				</div>
 				</nav>
-				<div class="container container-right">
+				<div class="container container-right" style="width: calc(100% - 245px);">
 
 					<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 						<c:forEach items="${cars}" var="car">
@@ -75,7 +75,7 @@
 								<div class="card shadow-sm">
 									<div class="card-body">
 										<h4 class="card-title" style="display: inline;">
-											<a href="detail?vin=${car.getVin()}" class="link-primary">
+											<a href="../detail?vin=${car.getVin()}" class="link-primary">
 												<c:out value="${car.getMake()}" /> <c:out
 													value="${car.getModel()}" />
 											</a>
