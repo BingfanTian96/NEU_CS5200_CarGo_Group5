@@ -141,6 +141,7 @@ public class SavesDao{
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;
 		UserDao userDao = UserDao.getInstance();
+
 		try {
 			connection = connectionManager.getConnection();
 			selectStmt = connection.prepareStatement(selectCarsFromSaves);
