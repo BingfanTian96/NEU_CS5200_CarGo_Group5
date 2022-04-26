@@ -35,8 +35,8 @@
 							<img class="mb-4" src="../assets/logo.svg" alt="" width="72"
 							height="57"> <span class="fs-4">CarGo</span>
 						</a>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="/Cargo/profile/account?userId=3"> <svg
+						<li class="nav-item"><a class="nav-link" aria-current="page"
+							href="/Cargo/profile/account?userId=3"> <svg
 									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 									viewBox="0 0 24 24" fill="none" stroke="currentColor"
 									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -60,7 +60,7 @@
 									viewBox="0 0 16 16"> <path
 									d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
 								</svg> Saved </a></li>
-						<li class="nav-item"><a class="nav-link"
+						<li class="nav-item"><a class="nav-link active"
 							href="/Cargo/profile/messages?userId=3"> <svg
 									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 									viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -75,40 +75,32 @@
 
 				</div>
 				</nav>
-				<div class="container container-right">
-					<form action="" method="POST">
-						<div class="mb-3">
-							<label for="InputVin" class="form-label">First Name</label> <input
-								type="text" class="form-control" name="firstName"
-								value="${user.getFirstName()}" style="width: calc(100% - 500px);">
-						</div>
-						<div class="mb-3">
-							<label for="InputYear" class="form-label">Last Name</label> <input
-								type="text" class="form-control" name="lastName"
-								value="${user.getLastName()}" style="width: calc(100% - 500px);">
-						</div>
-						<div class="mb-3">
-							<label for="InputMake" class="form-label">Email</label> <input
-								type="text" class="form-control" name="email"
-								value="${user.getEmail()}" style="width: calc(100% - 500px);">
-						</div>
-						<div class="mb-3">
-							<label for="InputMake" class="form-label">Password</label> <input
-								type="text" class="form-control" name="password"
-								value="${user.getPassword()}" style="width: calc(100% - 500px);">
-						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</form>
-
-
-
-				</div>
 			</div>
 		</div>
-
+		<div class="container container-right" >
+			<form action="" method="POST" id="form1">
+				<h3>Leave a message to ${toId}</h3>
+	
+				<div class="mb-3">
+					<textarea class="form-control" name="content" rows="5"></textarea>
+				</div>
+				<input hidden name="toId" value="${toId}" />
+				<input hidden name="fromId" id="fromId" />
+				<button type="submit" class="btn btn-primary">Submit</button>
+			</form>
+		</div>
+		
 		</main>
 
-
+		
+	<script>
+		var userId = localStorage.getItem('userId');
+		document.getElementById("fromId").value = userId;
+		if (userId == null || userId.trim().length == 0) {
+			element = document.getElementById("form1");
+			element.remove();
+		}
+	</script>
 		<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
