@@ -33,7 +33,7 @@ public class BuyerDao extends UserDao{
 	 */
 	public Buyer create(Buyer buyer) throws SQLException {
         // Insert into the superclass table first.
-		User user = create(new User(buyer.getFirstName(), buyer.getLastName(),
+		Users user = create(new Users(buyer.getFirstName(), buyer.getLastName(),
         buyer.getEmail(), buyer.getPassword()));
 
 		String insertBuyer = "INSERT INTO Buyers(UserId,DOB,Zip) " +

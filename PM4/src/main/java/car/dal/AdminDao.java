@@ -35,7 +35,7 @@ public class AdminDao extends UserDao{
 	 */
 	public Admin create(Admin admin) throws SQLException {
         // Insert into the superclass table first.
-		create(new User(admin.getFirstName(), admin.getLastName(),
+		create(new Users(admin.getFirstName(), admin.getLastName(),
         admin.getEmail(), admin.getPassword()));
 
 		String insertBuyer = "INSERT INTO Admins(UserId) " +

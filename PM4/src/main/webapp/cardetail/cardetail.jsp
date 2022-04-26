@@ -28,13 +28,6 @@
 			<span class="fs-4">CarGo</span>
 		</a>
 
-		<ul class="nav nav-pills">
-			<li class="nav-item">
-				<form action="/Cargo/new" method="GET">
-					<button class="btn btn-outline-primary" type="submit">New</button>
-				</form>
-			</li>
-		</ul>
 		</header>
 	</div>
 	</header>
@@ -112,10 +105,14 @@
 				</tbody>
 			</table>
 			<div style="padding-top: 50px">
-
+				<c:if test="${messages['success'] != null}">
+					<div class="alert alert-success" role="alert">
+						<c:out value="${messages['success']}" />
+					</div>
+				</c:if>
 				<form action="" method="POST" id="form1">
 					<h3>Leave a message to ${car.getSeller().getFirstName()}</h3>
-				
+
 					<div class="mb-3">
 						<textarea class="form-control" name="content" rows="5"></textarea>
 					</div>
@@ -138,7 +135,7 @@
 		</p>
 	</div>
 	</footer>
-	
+
 	<script>
 		var userId = localStorage.getItem('userId');
 		document.getElementById("fromId").value = userId;

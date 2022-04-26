@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import car.model.Cars;
 import car.model.Sellers;
+import car.model.Users;
 
 
 /**
@@ -599,7 +600,7 @@ public class CarDao {
 		return cars;
 	}
 	
-	public Cars updateCar(Cars car, String trim, String state, int odometer, double carCondition, String color, String interior, int mmr,int sellingPrice, Sellers seller) throws SQLException {
+	public Cars updateCar(Cars car, String trim, String state, int odometer, double carCondition, String color, String interior, int mmr,int sellingPrice, Users seller) throws SQLException {
 		String updateCar = "UPDATE Cars SET Trim=?, State=?, Odometer=?, CarCondition=?, Color=?, Interior=?, Mmr=?, SellingPrice=?, UserId=? WHERE Vin=?;";
 		Connection connection = null;
 		PreparedStatement updateStmt = null;
@@ -666,7 +667,7 @@ public class CarDao {
 	
 	
 	private Cars getObj(ResultSet results) throws SQLException {
-		SellerDao sellerDao = SellerDao.getInstance();
+		UserDao userDao = UserDao.getInstance();
 		String resultVin = results.getString("Vin");
 		int resultYear = results.getInt("Year");
 		String resultMake = results.getString("Make");
@@ -682,7 +683,7 @@ public class CarDao {
 		int resultMmr = results.getInt("Mmr");
 		int resultSellingPrice = results.getInt("SellingPrice");
 		int resultUserId = results.getInt("UserId");
-		Sellers seller = sellerDao.getSellerByUserId(resultUserId);
+		Users seller = userDao.getUserByUserId(resultUserId);
 		Cars car = new Cars(resultVin,resultYear,
 				resultMake,resultModel,resultTrim,resultBody,
 				resultTransmission,resultState,resultOdometer,

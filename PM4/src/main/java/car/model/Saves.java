@@ -7,9 +7,9 @@ package car.model;
 public class Saves{
 	protected int saveId;
 	protected Cars car;
-	protected Buyer buyer;
+	protected Users buyer;
 	//this constructor is used for reading records
-	public Saves(int saveId, Cars car, Buyer buyer) {
+	public Saves(int saveId, Cars car, Users buyer) {
 		super();
 		this.saveId = saveId;
 		this.car = car;
@@ -22,7 +22,7 @@ public class Saves{
 	}
 
 	//this constructor is used for creating records
-	public Saves(Cars car, Buyer buyer) {
+	public Saves(Cars car, Users buyer) {
 		super();
 		this.car = car;
 		this.buyer = buyer;
@@ -39,10 +39,10 @@ public class Saves{
 	public void setCar(Cars car) {
 		this.car = car;
 	}
-	public Buyer getBuyer() {
+	public Users getBuyer() {
 		return buyer;
 	}
-	public void setBuyer(Buyer buyer) {
+	public void setBuyer(Users buyer) {
 		this.buyer = buyer;
 	}
 }

@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import car.model.Companies;
 import car.model.Sellers;
-import car.model.User;
+import car.model.Users;
 
 public class SellerDao extends UserDao{
 		// Single pattern: instantiation is limited to one object.
@@ -27,7 +27,7 @@ public class SellerDao extends UserDao{
 		 */
 		public Sellers create(Sellers seller) throws SQLException {
 	        // Insert into the superclass table first.
-			create(new User(seller.getFirstName(), seller.getLastName(),
+			create(new Users(seller.getFirstName(), seller.getLastName(),
 	        seller.getEmail(), seller.getPassword()));
 
 			String insertSeller = "INSERT INTO Sellers(UserId,CompanyId,Zip,Address,Introduction) " +
@@ -99,7 +99,7 @@ public class SellerDao extends UserDao{
 					String address = results.getString("Address");
 					String introduction = results.getString("Introduction");
 					Companies company = companyDao.getCompanyById(companyId);
-					User user = userDao.getUserByUserId(selectUserId);
+					Users user = userDao.getUserByUserId(selectUserId);
 					Sellers seller = new Sellers(company,zip,address,introduction,selectUserId,user.getFirstName(),
 							user.getLastName(),user.getEmail(),user.getPassword());
 					return seller;

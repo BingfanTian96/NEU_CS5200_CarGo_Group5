@@ -27,14 +27,6 @@
 			<img class="mb-4" src="assets/logo.svg" alt="" width="72" height="57">
 			<span class="fs-4">CarGo</span>
 		</a>
-
-		<ul class="nav nav-pills">
-			<li class="nav-item">
-				<form action="/Cargo/new" method="GET">
-					<button class="btn btn-outline-primary" type="submit">New</button>
-				</form>
-			</li>
-		</ul>
 		</header>
 	</div>
 	</header>

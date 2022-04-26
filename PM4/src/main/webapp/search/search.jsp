@@ -124,25 +124,13 @@
 									<c:out value="${car.getState().toUpperCase()}" />
 									&nbsp
 								</p>
-								<form action="/Cargo/update" method="GET"
-									style="display: inline">
-									<input type="hidden" aria-label="vin" name="vin"
-										value="${car.getVin()}" />
-									<button class="btn btn-outline-success" type="submit">Update</button>
-								</form>
-								<form action="/Cargo/delete" method="GET"
-									style="display: inline">
-									<input type="hidden" aria-label="vin" name="vin"
-										value="${car.getVin()}" />
-									<button class="btn btn-outline-danger" type="submit">Delete</button>
-								</form>
+								
 							</div>
 						</div>
 					</div>
 
 
 				</c:forEach>
-
 
 			</div>
 

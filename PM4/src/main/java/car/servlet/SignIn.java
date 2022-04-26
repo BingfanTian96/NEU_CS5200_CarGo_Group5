@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import car.dal.UserDao;
-import car.model.User;
+import car.model.Users;
 
 
 // @author xii12
@@ -45,7 +45,7 @@ public class SignIn extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
         
-        User user = null;
+        Users user = null;
         
         // Retrieve and validate name.
         // firstname is retrieved from the URL query string.

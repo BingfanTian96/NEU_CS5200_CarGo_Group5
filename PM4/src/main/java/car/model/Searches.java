@@ -17,10 +17,10 @@ public class Searches{
 	protected double carCondition;
 	protected String color;
 	protected String interior;
-	protected User user;
+	protected Users user;
 	//this constructor is used for reading records
 	public Searches(int searchId, int year, String make, String model, String trim, String body, String transmission,
-			String state, int odometer, double carCondition, String color, String interior, User user) {
+			String state, int odometer, double carCondition, String color, String interior, Users user) {
 		super();
 		this.searchId = searchId;
 		this.year = year;
@@ -46,7 +46,7 @@ public class Searches{
 
 	//this constructor is used for creating records
 	public Searches(int year, String make, String model, String trim, String body, String transmission, String state,
-			int odometer, double carCondition, String color, String interior, User user) {
+			int odometer, double carCondition, String color, String interior, Users user) {
 		super();
 		this.year = year;
 		this.make = make;
@@ -133,10 +133,10 @@ public class Searches{
 	public void setInterior(String interior) {
 		this.interior = interior;
 	}
-	public User getUser() {
+	public Users getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(Users user) {
 		this.user = user;
 	}
 	

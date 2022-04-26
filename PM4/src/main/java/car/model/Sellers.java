@@ -6,7 +6,7 @@ package car.model;
  * @author Jianqing Ma, Sen Yan, Bo Chen, Bingfan Tian, Qihui Liu, Kailun He
  *
  */
-public class Sellers extends User {
+public class Sellers extends Users {
 	protected Companies company;
 	protected int zip;
 	protected String address;

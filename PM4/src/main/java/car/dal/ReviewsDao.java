@@ -13,6 +13,7 @@ import java.util.List;
 import car.model.Buyer;
 import car.model.Reviews;
 import car.model.Sellers;
+import car.model.Users;
 
 /**
  * Reviews Dao
@@ -95,8 +96,7 @@ public class ReviewsDao{
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;
-		BuyerDao buyerDao = BuyerDao.getInstance();
-		SellerDao sellerDao = SellerDao.getInstance();
+		UserDao userDao = UserDao.getInstance();
 		try {
 			connection = connectionManager.getConnection();
 			selectStmt = connection.prepareStatement(selectReview);
@@ -110,8 +110,8 @@ public class ReviewsDao{
 				double rating = results.getDouble("Rating");
 				int buyerId = results.getInt("BuyerId");
 				int sellerId = results.getInt("SellerId");
-				Buyer buyer = (Buyer) buyerDao.getUserByUserId(buyerId);
-				Sellers seller = (Sellers) sellerDao.getUserByUserId(sellerId);
+				Users buyer = userDao.getUserByUserId(buyerId);
+				Users seller = userDao.getUserByUserId(sellerId);
 				Reviews review = new Reviews(resultReviewId,date,reviewContent,rating,buyer,seller);
 				return review;
 			}
@@ -145,8 +145,7 @@ public class ReviewsDao{
 		Connection connection = null;
 		PreparedStatement selectStmt = null;
 		ResultSet results = null;
-		BuyerDao buyerDao = BuyerDao.getInstance();
-		SellerDao sellerDao = SellerDao.getInstance();
+		UserDao userDao = UserDao.getInstance();
 		try {
 			connection = connectionManager.getConnection();
 			selectStmt = connection.prepareStatement(selectReview);
@@ -160,8 +159,8 @@ public class ReviewsDao{
 				double rating = results.getDouble("Rating");
 				int buyerId = results.getInt("BuyerId");
 				int sellerId = results.getInt("SellerId");
-				Buyer buyer = (Buyer) buyerDao.getUserByUserId(buyerId);
-				Sellers seller = (Sellers) sellerDao.getUserByUserId(sellerId);
+				Users buyer = userDao.getUserByUserId(buyerId);
+				Users seller = userDao.getUserByUserId(sellerId);
 				Reviews review = new Reviews(resultReviewId,date,reviewContent,rating,buyer,seller);
 				reviews.add(review);
 			}

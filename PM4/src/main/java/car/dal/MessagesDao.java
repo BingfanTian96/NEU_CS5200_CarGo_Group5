@@ -11,7 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 import car.model.Messages;
-import car.model.User;
+import car.model.Users;
 
 
 /**
@@ -51,9 +51,6 @@ public class MessagesDao{
 
             insertStmt.executeUpdate();
             
-            // Retrieve the auto-generated key and set it, so it can be used by the caller.
-            // For more details, see:
-            // http://dev.mysql.com/doc/connector-j/en/connector-j-usagenotes-last-insert-id.html
             resultKey = insertStmt.getGeneratedKeys();
             int messageId = -1;
             if(resultKey.next()) {
@@ -87,8 +84,7 @@ public class MessagesDao{
         Connection connection = null;
         PreparedStatement selectStmt = null;
         ResultSet results = null;
-//        BuyerDao buyerDao = BuyerDao.getInstance();
-//        SellerDao sellerDao = SellerDao.getInstance();
+        
         try {
             connection = connectionManager.getConnection();
             selectStmt = connection.prepareStatement(selectMessage);
