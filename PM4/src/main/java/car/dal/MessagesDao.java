@@ -78,7 +78,7 @@ public class MessagesDao{
     
     public Messages getMessageByMessageId(int messageId) throws SQLException {
         String selectMessage =
-            "SELECT MessageId, SentTime, Content, FromId, ToId" +
+            "SELECT MessageId, SentTime, Content, FromId, ToId " +
             "FROM Messages " +
             "WHERE MessageId=?;";
         Connection connection = null;
@@ -126,9 +126,9 @@ public class MessagesDao{
     public List<Messages> getSentMessageByUserId(int userId) throws SQLException {
         List<Messages> messages = new ArrayList<>();
         String selectMessage =
-            "SELECT MessageId, SentTime, Content, FromId, ToId" +
-            "FROM Messages INNER JOIN Users ON Messages.FromId = Users.UserId" +
-            "WHERE userId=?;";
+            "SELECT MessageId, SentTime, Content, FromId, ToId FROM Messages "
+            + "INNER JOIN Users ON Messages.FromId = Users.UserId "
+            + "WHERE Messages.FromId=?;";
         Connection connection = null;
         PreparedStatement selectStmt = null;
         ResultSet results = null;
@@ -175,9 +175,10 @@ public class MessagesDao{
     public List<Messages> getReceivedMessageByUserId(int userId) throws SQLException {
         List<Messages> messages = new ArrayList<>();
         String selectMessage =
-            "SELECT MessageId, SentTime, Content, FromId, ToId" +
-            "FROM Messages INNER JOIN Users ON Messages.toId = Users.UserId" +
-            "WHERE userId=?;";
+            "SELECT MessageId, SentTime, Content, FromId, ToId " +
+            "FROM Messages INNER JOIN Users ON Messages.ToId = Users.UserId " +
+            "WHERE Messages.ToId=?;";
+  
         Connection connection = null;
         PreparedStatement selectStmt = null;
         ResultSet results = null;
