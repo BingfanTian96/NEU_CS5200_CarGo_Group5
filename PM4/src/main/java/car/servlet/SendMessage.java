@@ -21,13 +21,15 @@ import car.model.*;
 @WebServlet("/profile/sendmessage")
 public class SendMessage extends HttpServlet {
 
-	protected CarDao carDao;
+//	protected CarDao carDao;
 	protected MessagesDao messagesDao;
+	protected UserDao userDao;
 
 	@Override
 	public void init() throws ServletException {
-		carDao = CarDao.getInstance();
+//		carDao = CarDao.getInstance();
 		messagesDao = MessagesDao.getInstance();
+		userDao = UserDao.getInstance();
 	}
 
 	@Override
@@ -36,7 +38,15 @@ public class SendMessage extends HttpServlet {
 		Map<String, String> messages = new HashMap<String, String>();
 		req.setAttribute("messages", messages);
 		String resultToId = req.getParameter("toId");
-		req.setAttribute("toId", resultToId);
+		try {
+			Users curUsers = userDao.getUserByUserId(Integer.valueOf(resultToId));
+//			Messages curMessages = messagesDao.getMessageByMessageId(0);
+			req.setAttribute("toId", curUsers.getFirstName());
+		} catch (NumberFormatException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		req.getRequestDispatcher("/profile/sendmessage.jsp").forward(req, resp);
 	}
 

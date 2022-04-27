@@ -89,7 +89,7 @@
 												<p class="card-text">
 													<c:out value="${toMessage.getContent()}" />
 												</p>
-												<a href="/sendmessage?toId=${toMessage.getFromId()}"
+												<a href="/Cargo/profile/sendmessage?toId=${toMessage.getFromId()}"
 													class="btn btn-primary">Reply</a>
 											</div>
 										</div>
