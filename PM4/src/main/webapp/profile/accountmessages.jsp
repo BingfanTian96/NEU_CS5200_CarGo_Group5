@@ -68,14 +68,14 @@
 					</ul>
 				</div>
 				</nav>
-				<div class="container">
-					<div class="row justify-content-center">
+				<div class="container container-right">
+					<div class="row">
 						<div class="col col-lg-4">
-							<ul class="list-group">
-								<li class="list-group-item"><h2>Message Inbox</h2></li>
+							<h2>Message Inbox</h2>
+							<ul class="list-group list-group-flush">
 
 								<c:forEach items="${toMessages}" var="toMessage">
-									<li>
+									<li class="list-group-item" style="padding-left: 0px;">
 										<div class="card">
 											<div class="card-body">
 												<h4 class="card-title">
@@ -100,11 +100,11 @@
 							</ul>
 						</div>
 						<div class="col col-lg-4">
-							<ul class="list-group">
-								<li class="list-group-item"><h2>Sent Messages</h2></li>
+							<h2>Sent Messages</h2>
+							<ul class="list-group list-group-flush">
 
 								<c:forEach items="${fromMessages}" var="fromMessage">
-									<li>
+									<li class="list-group-item" style="padding-left: 0px;">
 										<div class="card">
 											<div class="card-body">
 												<h4 class="card-title">
@@ -118,6 +118,7 @@
 												<p class="card-text">
 													<c:out value="${fromMessage.getContent()}" />
 												</p>
+												<div style="height: 38px;"></div>
 											</div>
 										</div>
 									</li>
