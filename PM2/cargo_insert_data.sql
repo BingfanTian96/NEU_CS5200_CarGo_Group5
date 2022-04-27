@@ -206,3 +206,18 @@ INSERT INTO Reviews(ReviewContent, Rating, BuyerId, SellerId)
 INSERT INTO Reviews(ReviewContent, Rating, BuyerId, SellerId)
 	VALUES('This is a content', 3.0, 4, 7);
     
+insert into Cars(
+	Vin, Year, Make, Model, 
+    Trim, Body, Transmission, 
+    State, Odometer, CarCondition, 
+    Color, Interior, Mmr, SellingPrice, UserId)
+    VALUES('1C4RJFAG6JC499308', 2018, 'Jeep', 'Grand Cherokee', 'Limited', 'SUV', 'automatic', 
+		'WA', 43990, 4.8, 'Black', 'Black', 29000, 35000, 3);
+
+insert into Cars(
+	Vin, Year, Make, Model, 
+    Trim, Body, Transmission, 
+    State, Odometer, CarCondition, 
+    Color, Interior, Mmr, SellingPrice, UserId)
+    VALUES('1C4RJFAG6JC491234', 2017, 'BMW', 'X6', 'sport', 'SUV', 'automatic', 
+    'WA', 43990, 4.8, 'Blue', 'Black', 29000, 35000, 3);

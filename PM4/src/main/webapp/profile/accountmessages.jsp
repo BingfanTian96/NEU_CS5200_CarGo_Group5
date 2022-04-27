@@ -35,23 +35,21 @@
 							<img class="mb-4" src="../assets/logo.svg" alt="" width="72"
 							height="57"> <span class="fs-4">CarGo</span>
 						</a>
-						<li class="nav-item"><a class="nav-link active"
-							aria-current="page" href="" id="profile-link"> <svg
+						<li class="nav-item"><a class="nav-link" aria-current="page"
+							href="" id="profile-link"><svg
 									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 									viewBox="0 0 24 24" fill="none" stroke="currentColor"
 									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
 									class="feather feather-home"> <path
 									d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path> <polyline
-									points="9 22 9 12 15 12 15 22"></polyline></svg> Profile
-						</a></li>
+									points="9 22 9 12 15 12 15 22"></polyline></svg> Profile </a></li>
 						<li class="nav-item"><a class="nav-link" href=""
-							id="posts-link"> <svg xmlns="http://www.w3.org/2000/svg"
+							id="posts-link"><svg xmlns="http://www.w3.org/2000/svg"
 									width="24" height="24" viewBox="0 0 24 24" fill="none"
 									stroke="currentColor" stroke-width="2" stroke-linecap="round"
 									stroke-linejoin="round" class="feather feather-file"> <path
 									d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-								<polyline points="13 2 13 9 20 9"></polyline></svg> Posts
-						</a></li>
+								<polyline points="13 2 13 9 20 9"></polyline></svg> Posts </a></li>
 						<li class="nav-item"><a class="nav-link" href=""
 							id="saved-link"><svg xmlns="http://www.w3.org/2000/svg"
 									width="16" height="16" fill="currentColor"
@@ -60,7 +58,7 @@
 									viewBox="0 0 16 16"> <path
 									d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
 								</svg> Saved </a></li>
-						<li class="nav-item"><a class="nav-link" href=""
+						<li class="nav-item"><a class="nav-link active" href=""
 							id="message-link"><svg xmlns="http://www.w3.org/2000/svg"
 									width="24" height="24" viewBox="0 0 24 24" fill="none"
 									stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -68,43 +66,68 @@
 									d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
 								<polyline points="13 2 13 9 20 9"></polyline></svg> Messages </a></li>
 					</ul>
-
-
-
 				</div>
 				</nav>
-				<div class="container container-right">
-					<form action="" method="POST">
-						<div class="mb-3">
-							<label for="InputVin" class="form-label">First Name</label> <input
-								type="text" class="form-control" name="firstName"
-								value="${user.getFirstName()}"
-								style="width: calc(100% - 500px);">
-						</div>
-						<div class="mb-3">
-							<label for="InputYear" class="form-label">Last Name</label> <input
-								type="text" class="form-control" name="lastName"
-								value="${user.getLastName()}" style="width: calc(100% - 500px);">
-						</div>
-						<div class="mb-3">
-							<label for="InputMake" class="form-label">Email</label> <input
-								type="text" class="form-control" name="email"
-								value="${user.getEmail()}" style="width: calc(100% - 500px);">
-						</div>
-						<div class="mb-3">
-							<label for="InputMake" class="form-label">Password</label> <input
-								type="text" class="form-control" name="password"
-								value="${user.getPassword()}" style="width: calc(100% - 500px);">
-						</div>
-						<button type="submit" class="btn btn-primary">Submit</button>
-					</form>
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col col-lg-4">
+							<ul class="list-group">
+								<li class="list-group-item"><h2>Message Inbox</h2></li>
 
+								<c:forEach items="${toMessages}" var="toMessage">
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<h4 class="card-title">
+													From
+													<c:out value="${toMessage.getFromId()}" />
+												</h4>
+												<h5 class="card-title mb-3 text-muted">
+													Send Time:
+													<c:out value="${toMessage.getSendTime()}" />
+												</h5>
+												<p class="card-text">
+													<c:out value="${toMessage.getContent()}" />
+												</p>
+												<a href="/Cargo/profile/sendmessage?toId=${toMessage.getFromId()}"
+													class="btn btn-primary">Reply</a>
+											</div>
+										</div>
+									</li>
 
+								</c:forEach>
 
+							</ul>
+						</div>
+						<div class="col col-lg-4">
+							<ul class="list-group">
+								<li class="list-group-item"><h2>Sent Messages</h2></li>
+
+								<c:forEach items="${fromMessages}" var="fromMessage">
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<h4 class="card-title">
+													From
+													<c:out value="${fromMessage.getToId()}" />
+												</h4>
+												<h5 class="card-title mb-3 text-muted">
+													Send Time:
+													<c:out value="${fromMessage.getSendTime()}" />
+												</h5>
+												<p class="card-text">
+													<c:out value="${fromMessage.getContent()}" />
+												</p>
+											</div>
+										</div>
+									</li>
+
+								</c:forEach>
+
+							</ul>
+						</div>
+					</div>
 				</div>
-			</div>
-		</div>
-
 		</main>
 
 		<script>
@@ -115,10 +138,9 @@
 					+ userId;
 			document.getElementById("saved-link").href = "/Cargo/profile/saved?userId="
 					+ userId;
-			document.getElementById("message-link").href = "/Cargo/profile/messages?userId="
+			document.getElementById("messages-link").href = "/Cargo/profile/messages?userId="
 					+ userId;
 		</script>
-
 
 		<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 </body>
