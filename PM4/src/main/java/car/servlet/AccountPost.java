@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import car.dal.CarDao;
-import car.dal.SavesDao;
+import car.dal.ReviewsDao;
 import car.dal.SellerDao;
 import car.dal.UserDao;
 import car.model.Cars;
@@ -24,18 +24,19 @@ import car.model.Users;
 
 /**   
  * @author: Bingfan Tian  
- * @date: 2022.04.22
+ * @date: 2022.04.01 
  */
-@WebServlet("/profile/saved")
-public class AccountSavedTest extends HttpServlet {
+@WebServlet("/profile/posts")
+public class AccountPost extends HttpServlet {
 	
 	protected UserDao userDao;
-	protected SavesDao savesDao;
+	protected ReviewsDao reviewsDao;
+	protected CarDao carDao;
 	
 	@Override
 	public void init() throws ServletException {
 		userDao = UserDao.getInstance();
-		savesDao = SavesDao.getInstance();
+		carDao = CarDao.getInstance();
 	}
 	
 	@Override
@@ -45,27 +46,20 @@ public class AccountSavedTest extends HttpServlet {
         Map<String, String> messages = new HashMap<String, String>();
         req.setAttribute("messages", messages);
         List<Cars> cars = new ArrayList<Cars>();
-        
         String resultUserId = req.getParameter("userId");
         if(resultUserId == null || resultUserId.trim().isEmpty()){
         	messages.put("success", "Invalid UserID number");
         } else {
 	        try {
-	        	cars = savesDao.getCarsFromSavesByUserId(Integer.valueOf(resultUserId));
-	        	Users cur_User = userDao.getUserByUserId(Integer.valueOf(resultUserId));
-				if(cur_User == null) {
-	        		messages.put("success", "UserID does not exist.");
-	        	} else {
-	        		req.setAttribute("cars", cars);
-	        	}
+	        	cars = carDao.getCarByUserId(Integer.valueOf(resultUserId));
+	        	req.setAttribute("cars", cars);
 	        	messages.put("success", " Saves car list for user: " + resultUserId);
 	        } catch (SQLException e) {
 				e.printStackTrace();
 				throw new IOException(e);
 	        }
         }     
-        
-        req.getRequestDispatcher("/profile/accountsaved.jsp").forward(req, resp);
+        req.getRequestDispatcher("/profile/accountposts.jsp").forward(req, resp);
 	}
 	
 }
