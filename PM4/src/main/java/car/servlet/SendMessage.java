@@ -68,7 +68,9 @@ public class SendMessage extends HttpServlet {
 				System.out.println(fromId);
 				Long datetime = System.currentTimeMillis();
 				Timestamp timestamp = new Timestamp(datetime);
-				Messages message = new Messages(timestamp, msgContent, fromId, toId);
+				Users from = userDao.getUserByUserId(fromId);
+				Users to = userDao.getUserByUserId(toId);
+				Messages message = new Messages(timestamp, msgContent, from, to);
 				messages.put("success", "Successfully send a message to Seller: " + toId);
 				messagesDao.create(message);
 			} catch (SQLException e) {

@@ -211,8 +211,8 @@ insert into Cars(
     Trim, Body, Transmission, 
     State, Odometer, CarCondition, 
     Color, Interior, Mmr, SellingPrice, UserId)
-    VALUES('1C4RJFAG6JC499308', 2018, 'Jeep', 'Grand Cherokee', 'Limited', 'SUV', 'automatic', 
-		'WA', 43990, 4.8, 'Black', 'Black', 29000, 35000, 3);
+    VALUES('1C4RJFAG6JC1223334', 2018, 'Jeep', 'Grand Cherokee', 'Limited', 'SUV', 'automatic', 
+		'WA', 43990, 4.8, 'Black', 'Black', 29000, 35000, 5);
 
 insert into Cars(
 	Vin, Year, Make, Model, 
@@ -220,4 +220,4 @@ insert into Cars(
     State, Odometer, CarCondition, 
     Color, Interior, Mmr, SellingPrice, UserId)
     VALUES('1C4RJFAG6JC491234', 2017, 'BMW', 'X6', 'sport', 'SUV', 'automatic', 
-    'WA', 43990, 4.8, 'Blue', 'Black', 29000, 35000, 3);
+    'WA', 43990, 4.8, 'Blue', 'Black', 29000, 35000, 5);

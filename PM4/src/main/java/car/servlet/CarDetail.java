@@ -23,15 +23,17 @@ import car.model.*;
  * @date: 2022.04.01 
  */
 @WebServlet("/detail")
-public class CarDetailTest extends HttpServlet {
+public class CarDetail extends HttpServlet {
 
 	protected CarDao carDao;
 	protected MessagesDao messagesDao;
+	protected UserDao userDao;
 
 	@Override
 	public void init() throws ServletException {
 		carDao = CarDao.getInstance();
 		messagesDao = MessagesDao.getInstance();
+		userDao = UserDao.getInstance();
 	}
 
 	@Override
@@ -64,17 +66,22 @@ public class CarDetailTest extends HttpServlet {
 		req.setAttribute("messages", messages);
 
 		String msgContent = req.getParameter("content");
+		String resultVin = req.getParameter("vin");
 		if(msgContent == null || msgContent.trim().isEmpty()) {
 			messages.put("success", "Please enter a valid message.");
 		} else {
 			try {
 				int fromId = Integer.valueOf(req.getParameter("fromId"));
 				int toId = Integer.valueOf(req.getParameter("toId"));
+				Users from = userDao.getUserByUserId(fromId);
+				Users to = userDao.getUserByUserId(toId);
 				Long datetime = System.currentTimeMillis();
 				Timestamp timestamp = new Timestamp(datetime);
-				Messages message = new Messages(timestamp, msgContent, fromId, toId);
-				messages.put("success", "Successfully send a message to Seller: " + toId);
+				Messages message = new Messages(timestamp, msgContent, from, to);
+				Users users = userDao.getUserByUserId(toId);
+				messages.put("success", "Successfully send a message to Seller: " + users.getFirstName());
 				messagesDao.create(message);
+				req.setAttribute("vin", resultVin);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

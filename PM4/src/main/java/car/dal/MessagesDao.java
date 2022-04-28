@@ -46,8 +46,8 @@ public class MessagesDao{
          
             insertStmt.setTimestamp(1, new Timestamp(message.getSendTime().getTime()));
             insertStmt.setString(2, message.getContent());
-            insertStmt.setInt(3, message.getFromId());
-            insertStmt.setInt(4, message.getToId());
+            insertStmt.setInt(3, message.getFromId().getUserId());
+            insertStmt.setInt(4, message.getToId().getUserId());
 
             insertStmt.executeUpdate();
             
@@ -98,8 +98,10 @@ public class MessagesDao{
                 
                 int fromId = results.getInt("FromId");
                 int toId = results.getInt("ToId");
-                
-                Messages message = new Messages(resultMessageId,date,messageContent,fromId,toId);
+                UserDao userDao = UserDao.getInstance();
+                Users from = userDao.getUserByUserId(fromId);
+                Users to = userDao.getUserByUserId(toId);
+                Messages message = new Messages(resultMessageId,date,messageContent,from,to);
                 return message;
             }
         } catch (SQLException e) {
@@ -147,8 +149,9 @@ public class MessagesDao{
                 
                 int fromId = results.getInt("FromId");
                 int toId = results.getInt("ToId");
-    
-                Messages message = new Messages(resultMessageId,date,messageContent,fromId,toId);
+                Users from = userDao.getUserByUserId(fromId);
+                Users to = userDao.getUserByUserId(toId);
+                Messages message = new Messages(resultMessageId,date,messageContent,from,to);
                 messages.add(message);
             }
         } catch (SQLException e) {
@@ -197,8 +200,9 @@ public class MessagesDao{
                 
                 int fromId = results.getInt("FromId");
                 int toId = results.getInt("ToId");
-    
-                Messages message = new Messages(resultMessageId,date,messageContent,fromId,toId);
+                Users from = userDao.getUserByUserId(fromId);
+                Users to = userDao.getUserByUserId(toId);
+                Messages message = new Messages(resultMessageId,date,messageContent,from,to);
                 messages.add(message);
             }
         } catch (SQLException e) {

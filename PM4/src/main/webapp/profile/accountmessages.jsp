@@ -80,7 +80,7 @@
 											<div class="card-body">
 												<h4 class="card-title">
 													From
-													<c:out value="${toMessage.getFromId()}" />
+													<c:out value="${toMessage.getFromId().getFirstName()}" />
 												</h4>
 												<h5 class="card-title mb-3 text-muted">
 													Send Time:
@@ -89,7 +89,7 @@
 												<p class="card-text">
 													<c:out value="${toMessage.getContent()}" />
 												</p>
-												<a href="/Cargo/profile/sendmessage?toId=${toMessage.getFromId()}"
+												<a href="/Cargo/profile/sendmessage?toId=${toMessage.getFromId().getUserId()}"
 													class="btn btn-primary">Reply</a>
 											</div>
 										</div>
@@ -108,8 +108,8 @@
 										<div class="card">
 											<div class="card-body">
 												<h4 class="card-title">
-													From
-													<c:out value="${fromMessage.getToId()}" />
+													To 
+													<c:out value="${fromMessage.getToId().getFirstName()}" />
 												</h4>
 												<h5 class="card-title mb-3 text-muted">
 													Send Time:

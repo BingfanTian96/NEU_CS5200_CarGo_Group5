@@ -118,6 +118,7 @@
 					</div>
 					<input hidden name="toId" value="${car.getSeller().getUserId()}" />
 					<input hidden name="fromId" id="fromId" />
+					<input hidden name="vin" value="${car.getVin()}" />
 					<button type="submit" class="btn btn-primary">Submit</button>
 				</form>
 			</div>

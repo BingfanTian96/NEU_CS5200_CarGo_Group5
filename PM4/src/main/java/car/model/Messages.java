@@ -13,17 +13,17 @@ public class Messages {
     protected int messageId;
     protected Date sendTime;
     protected String content;
-    protected int fromId;
-    protected int toId;
+    protected Users fromId;
+    protected Users toId;
 
-    public Messages(Date sendTime, String content, int fromId, int toId) {
+    public Messages(Date sendTime, String content, Users fromId, Users toId) {
         this.sendTime = sendTime;
         this.content = content;
         this.fromId = fromId;
         this.toId = toId;
     }
     
-    public Messages(int messageId, Date sendTime, String content, int fromId, int toId) {
+    public Messages(int messageId, Date sendTime, String content, Users fromId, Users toId) {
         this.messageId = messageId;
         this.sendTime = sendTime;
         this.content = content;
@@ -59,19 +59,19 @@ public class Messages {
 		this.content = content;
 	}
 
-	public int getFromId() {
+	public Users getFromId() {
 		return fromId;
 	}
 
-	public void setFromId(int fromId) {
+	public void setFromId(Users fromId) {
 		this.fromId = fromId;
 	}
 
-	public int getToId() {
+	public Users getToId() {
 		return toId;
 	}
 
-	public void setToId(int toId) {
+	public void setToId(Users toId) {
 		this.toId = toId;
 	}
 
