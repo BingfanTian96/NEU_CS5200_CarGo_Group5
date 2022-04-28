@@ -38,7 +38,7 @@
 				</form>
 			</li>
 			<li class="nav-item" style="padding-right: 10px;">
-				<form action="/Cargo/signup/signup.jsp" method="GET">
+				<form action="/Cargo/signup" method="GET">
 					<button class="btn btn-outline-primary" type="submit">Sign
 						Up</button>
 				</form>
