@@ -47,6 +47,7 @@
 	</main>
 
 	<script>
+		localStorage.clear();
 		var userId = document.getElementById("userId").value;
 		var userName = document.getElementById("firstName").value + " "
 				+ document.getElementById("lastName").value;

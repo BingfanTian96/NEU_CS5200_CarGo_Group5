@@ -149,6 +149,7 @@
 	</footer>
 
 	<script>
+		
 		var userId = localStorage.getItem('userId');
 		var userName = localStorage.getItem('userName');
 		if (userId == null || userId.trim().length == 0){
